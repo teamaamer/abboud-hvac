@@ -1,0 +1,66 @@
+import Image from 'next/image';
+import { Phone } from 'lucide-react';
+import { CONTACT_INFO } from '@/lib/constants';
+
+export default function Footer() {
+  return (
+    <footer className="bg-[var(--navy-900)] text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-3 gap-12 mb-8">
+          <div>
+            <div className="bg-white px-3 py-1.5 rounded-xl shadow-md inline-block mb-4">
+              <Image
+                src="/logo.png"
+                alt="Abboud Electric and HVAC"
+                width={180}
+                height={60}
+                className="h-14 w-auto"
+              />
+            </div>
+            <p className="text-gray-300">
+              Reliable HVAC & Electrical service built on quality and trust.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Contact</h3>
+            <div className="space-y-3">
+              <a href={CONTACT_INFO.phone.href} className="flex items-center text-gray-300 hover:text-[var(--cyan-400)] transition-colors">
+                <Phone className="h-5 w-5 mr-3" />
+                {CONTACT_INFO.phone.display}
+              </a>
+              <p className="text-gray-300">
+                <strong>Email:</strong> {CONTACT_INFO.email}
+              </p>
+              <p className="text-gray-300">
+                <strong>Hours:</strong> {CONTACT_INFO.hours.weekday}<br />
+                {CONTACT_INFO.hours.saturday}, {CONTACT_INFO.hours.sunday}
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Legal</h3>
+            <div className="space-y-2">
+              <p className="text-gray-300 text-sm">
+                <strong>License #:</strong> {CONTACT_INFO.license.hvac} / {CONTACT_INFO.license.electrical}
+              </p>
+              <div className="space-y-2 mt-4">
+                <a href="#" className="block text-gray-300 hover:text-[var(--cyan-400)] transition-colors text-sm">
+                  Privacy Policy
+                </a>
+                <a href="#" className="block text-gray-300 hover:text-[var(--cyan-400)] transition-colors text-sm">
+                  Terms of Service
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-[var(--navy-700)] pt-8 text-center text-gray-400 text-sm">
+          <p>&copy; {new Date().getFullYear()} Abboud Electric and HVAC. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
