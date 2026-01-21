@@ -4,7 +4,7 @@ import { CONTACT_INFO, BACKGROUND_PATTERN_SVG } from '@/lib/constants';
 
 export default function EstimateSection() {
   return (
-    <section id="estimate" className="py-20 bg-gradient-to-br from-[var(--navy-900)] to-[var(--navy-700)] text-white relative overflow-hidden">
+    <section id="estimate" className="py-20 bg-gradient-to-br from-[var(--dark-bg)] to-[var(--dark-secondary)] text-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{ backgroundImage: `url("${BACKGROUND_PATTERN_SVG}")` }}></div>
       </div>
@@ -23,7 +23,7 @@ export default function EstimateSection() {
           <div className="flex justify-center mb-12">
             <a
               href={CONTACT_INFO.phone.href}
-              className="bg-[var(--cyan-500)] hover:bg-[var(--cyan-600)] text-[var(--navy-900)] px-10 py-5 rounded-xl font-bold text-xl transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center"
+              className="bg-gradient-to-r from-[var(--orange-500)] to-[var(--red-500)] hover:from-[var(--orange-600)] hover:to-[var(--red-600)] text-white px-10 py-5 rounded-xl font-bold text-xl transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center"
             >
               <Phone className="h-6 w-6 mr-3" />
               Call Now: {CONTACT_INFO.phone.display}

@@ -22,7 +22,7 @@ export default function FAQSection() {
     <section id="faqs" className="py-20 bg-[var(--gray-50)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[var(--navy-900)] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
+          <h2 className="text-4xl sm:text-5xl font-bold text-[var(--dark-bg)] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
             Frequently Asked Questions
           </h2>
         </div>
@@ -37,13 +37,13 @@ export default function FAQSection() {
                 aria-expanded={openFaq === index}
                 aria-controls={`faq-answer-${index}`}
               >
-                <span className="text-lg font-bold text-[var(--navy-900)] pr-4" style={{ fontFamily: 'var(--font-heading)' }}>
+                <span className="text-lg font-bold text-[var(--dark-bg)] pr-4" style={{ fontFamily: 'var(--font-heading)' }}>
                   {faq.q}
                 </span>
                 {openFaq === index ? (
-                  <ChevronUp className="h-6 w-6 text-[var(--cyan-500)] flex-shrink-0" aria-hidden="true" />
+                  <ChevronUp className="h-6 w-6 text-[var(--orange-500)] flex-shrink-0" aria-hidden="true" />
                 ) : (
-                  <ChevronDown className="h-6 w-6 text-[var(--cyan-500)] flex-shrink-0" aria-hidden="true" />
+                  <ChevronDown className="h-6 w-6 text-[var(--orange-500)] flex-shrink-0" aria-hidden="true" />
                 )}
               </button>
               <div 

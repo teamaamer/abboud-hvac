@@ -1,9 +1,9 @@
 export const CONTACT_INFO = {
   phone: {
-    display: '(123) 456-7890',
-    href: 'tel:+1234567890',
+    display: '(313) 607-9891',
+    href: 'tel:+13136079891',
   },
-  email: 'info@abboudhvac.com',
+  email: 'Adnanaboud1@hotmail.com',
   hours: {
     weekday: 'Mon-Fri 7AM-7PM',
     saturday: 'Sat 8AM-5PM',
@@ -24,16 +24,16 @@ export const NAVIGATION_ITEMS = [
 ] as const;
 
 export const SERVICE_AREAS = [
-  'City Center',
-  'Westside',
-  'Eastbrook',
-  'Northridge',
-  'Southgate',
-  'Riverside',
-  'Hillcrest',
-  'Parkview',
-  'Lakewood',
-  'Meadowbrook',
+  'Garden City',
+  'White Lake',
+  'Madison Heights',
+  'Ferndale',
+  'Sterling Heights',
+  'Westland',
+  'Livonia',
+  'Redford',
+  'Dearborn',
+  'Southfield',
 ] as const;
 
 export const BACKGROUND_PATTERN_SVG = 

@@ -16,6 +16,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = useCallback((): boolean => {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
@@ -38,27 +39,48 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
     return Object.keys(newErrors).length === 0;
   }, [formData]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
       return;
     }
     
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        fullName: '',
-        phone: '',
-        email: '',
-        serviceNeeded: '',
-        message: '',
-        contactMethod: 'call',
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch('/api/submit-estimate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      setErrors({});
-      if (onClose) onClose();
-    }, FORM_AUTO_CLOSE_DELAY);
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
+      
+      setSubmitted(true);
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          fullName: '',
+          phone: '',
+          email: '',
+          serviceNeeded: '',
+          message: '',
+          contactMethod: 'call',
+        });
+        setErrors({});
+        if (onClose) onClose();
+      }, FORM_AUTO_CLOSE_DELAY);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your request. Please call us directly at ' + CONTACT_INFO.phone.display);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -99,12 +121,12 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-2xl font-bold text-[var(--navy-900)] mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+          <h3 className="text-2xl font-bold text-[var(--dark-bg)] mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
             Thanks! We&apos;ll reach out shortly.
           </h3>
           <p className="text-gray-600 mb-4">
             If urgent, call us now at{' '}
-            <a href={CONTACT_INFO.phone.href} className="text-[var(--cyan-500)] font-semibold hover:underline">
+            <a href={CONTACT_INFO.phone.href} className="text-[var(--orange-500)] font-semibold hover:underline">
               {CONTACT_INFO.phone.display}
             </a>
           </p>
@@ -125,7 +147,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
         </button>
       )}
       
-      <h3 className="text-2xl font-bold text-[var(--navy-900)] mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
+      <h3 className="text-2xl font-bold text-[var(--dark-bg)] mb-6" style={{ fontFamily: 'var(--font-heading)' }}>
         Get a Free Estimate
       </h3>
       
@@ -143,7 +165,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               required
               value={formData.fullName}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--cyan-500)] focus:border-transparent outline-none transition-all ${
+              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all ${
                 errors.fullName ? 'border-red-500' : 'border-gray-300'
               }`}
               style={{ minHeight: '44px' }}
@@ -167,7 +189,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--cyan-500)] focus:border-transparent outline-none transition-all ${
+              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all ${
                 errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
               style={{ minHeight: '44px' }}
@@ -195,7 +217,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               required
               value={formData.phone}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--cyan-500)] focus:border-transparent outline-none transition-all ${
+              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all ${
                 errors.phone ? 'border-red-500' : 'border-gray-300'
               }`}
               style={{ minHeight: '44px' }}
@@ -218,7 +240,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               name="serviceNeeded"
               value={formData.serviceNeeded}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--cyan-500)] focus:border-transparent outline-none transition-all bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all bg-white"
               style={{ minHeight: '44px' }}
             >
               <option value="">Select a service...</option>
@@ -241,7 +263,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--cyan-500)] focus:border-transparent outline-none transition-all resize-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all resize-none"
           />
         </div>
 
@@ -257,7 +279,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
                 value="call"
                 checked={formData.contactMethod === 'call'}
                 onChange={handleChange}
-                className="w-4 h-4 text-[var(--cyan-500)] focus:ring-[var(--cyan-500)]"
+                className="w-4 h-4 text-[var(--orange-500)] focus:ring-[var(--orange-500)]"
               />
               <span className="ml-2 text-gray-700">Call</span>
             </label>
@@ -268,7 +290,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
                 value="text"
                 checked={formData.contactMethod === 'text'}
                 onChange={handleChange}
-                className="w-4 h-4 text-[var(--cyan-500)] focus:ring-[var(--cyan-500)]"
+                className="w-4 h-4 text-[var(--orange-500)] focus:ring-[var(--orange-500)]"
               />
               <span className="ml-2 text-gray-700">Text</span>
             </label>
@@ -277,10 +299,11 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
 
         <button
           type="submit"
-          className="w-full bg-[var(--cyan-500)] hover:bg-[var(--cyan-600)] text-[var(--navy-900)] px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+          disabled={isSubmitting}
+          className="w-full bg-gradient-to-r from-[var(--orange-500)] to-[var(--red-500)] hover:from-[var(--orange-600)] hover:to-[var(--red-600)] text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           style={{ minHeight: '56px' }}
         >
-          Request My Estimate
+          {isSubmitting ? 'Submitting...' : 'Request My Estimate'}
         </button>
       </form>
     </div>

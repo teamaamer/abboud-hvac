@@ -17,38 +17,38 @@ import type { Service, WhyChooseUsItem, ProcessStep, Review, FAQ } from './types
 export const SERVICES: Service[] = [
   {
     icon: Wind,
-    title: 'AC Repair & Replacement',
-    desc: 'Fast cooling system repairs and energy-efficient AC installations.',
+    title: 'Air Conditioning',
+    desc: 'Professional AC installation, repair, and maintenance. Stay cool all summer long.',
   },
   {
     icon: Flame,
-    title: 'Heating Repair & Installation',
-    desc: 'Furnace and heat pump service to keep you warm all winter.',
+    title: 'Heating Systems',
+    desc: 'Furnace and heating installation, repair, and service. Keep warm all winter.',
   },
   {
     icon: Settings,
-    title: 'HVAC Maintenance & Tune-Ups',
-    desc: 'Preventive maintenance plans to extend system life and save money.',
-  },
-  {
-    icon: HomeIcon,
-    title: 'Ductwork & Air Quality',
-    desc: 'Duct cleaning, sealing, and indoor air quality solutions.',
+    title: 'Water Heater',
+    desc: 'Water heater installation and repair. Hot water when you need it.',
   },
   {
     icon: Zap,
-    title: 'Electrical Repairs & Troubleshooting',
-    desc: 'Safe, code-compliant electrical repairs for any issue.',
+    title: 'Electrical Services',
+    desc: 'Certified electrical repairs, installations, and troubleshooting.',
   },
   {
     icon: Wrench,
-    title: 'Panel Upgrades & Installations',
-    desc: 'Electrical panel upgrades and new circuit installations.',
+    title: 'Generators',
+    desc: 'Generator installation, repair, and maintenance for backup power.',
+  },
+  {
+    icon: HomeIcon,
+    title: 'Parts & Filters',
+    desc: 'Quality HVAC parts and filters for all major brands and models.',
   },
 ];
 
 export const WHY_CHOOSE_US: WhyChooseUsItem[] = [
-  { icon: Shield, text: 'Licensed & insured technicians' },
+  { icon: Shield, text: 'Certified & insured technicians' },
   { icon: DollarSign, text: 'Transparent pricing (no surprise fees)' },
   { icon: Clock, text: 'Fast response times' },
   { icon: ThumbsUp, text: 'Clean, respectful workmanship' },
@@ -101,8 +101,8 @@ export const FAQS: FAQ[] = [
     a: "Yes! We provide 24/7 emergency service for urgent HVAC and electrical issues. Call us anytime and we'll get a technician to you as quickly as possible.",
   },
   {
-    q: 'Are you licensed and insured?',
-    a: 'Absolutely. All our technicians are fully licensed, insured, and background-checked. We carry comprehensive liability insurance for your peace of mind.',
+    q: 'Are you certified and insured?',
+    a: 'Absolutely. All our technicians are fully certified, insured, and background-checked. We carry comprehensive liability insurance for your peace of mind.',
   },
   {
     q: 'Do you provide free estimates?',
