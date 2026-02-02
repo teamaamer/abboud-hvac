@@ -43,17 +43,12 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Legal</h3>
             <div className="space-y-2">
-              <p className="text-gray-300 text-sm">
-                <strong>License #:</strong> {CONTACT_INFO.license.hvac} / {CONTACT_INFO.license.electrical}
-              </p>
-              <div className="space-y-2 mt-4">
-                <a href="#" className="block text-gray-300 hover:text-[var(--orange-400)] transition-colors text-sm">
-                  Privacy Policy
-                </a>
-                <a href="#" className="block text-gray-300 hover:text-[var(--orange-400)] transition-colors text-sm">
-                  Terms of Service
-                </a>
-              </div>
+              <a href="#" className="block text-gray-300 hover:text-[var(--orange-400)] transition-colors text-sm">
+                Privacy Policy
+              </a>
+              <a href="#" className="block text-gray-300 hover:text-[var(--orange-400)] transition-colors text-sm">
+                Terms of Service
+              </a>
             </div>
           </div>
         </div>

@@ -19,7 +19,9 @@ export default function CTAButtons({ onEstimateClick }: CTAButtonsProps) {
         </span>
       </button>
       <a
-        href={CONTACT_INFO.phone.href}
+        href={CONTACT_INFO.whatsapp.href}
+        target="_blank"
+        rel="noopener noreferrer"
         className="group relative bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 lg:px-7 py-3 rounded-xl font-bold text-base lg:text-lg transition-all duration-300 shadow-xl hover:shadow-2xl border-2 border-[var(--blue-500)] hover:border-[var(--blue-400)] hover:scale-105"
       >
         <span className="flex items-center justify-center gap-2">

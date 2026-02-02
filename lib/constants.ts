@@ -1,7 +1,10 @@
 export const CONTACT_INFO = {
   phone: {
-    display: '(313) 607-9891',
+    display: '+1 313 607 9891',
     href: 'tel:+13136079891',
+  },
+  whatsapp: {
+    href: 'https://wa.me/13136079891',
   },
   email: 'Adnanaboud1@hotmail.com',
   hours: {

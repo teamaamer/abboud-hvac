@@ -292,7 +292,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
                 onChange={handleChange}
                 className="w-4 h-4 text-[var(--orange-500)] focus:ring-[var(--orange-500)]"
               />
-              <span className="ml-2 text-gray-700">Text</span>
+              <span className="ml-2 text-gray-700">WhatsApp</span>
             </label>
           </div>
         </div>
