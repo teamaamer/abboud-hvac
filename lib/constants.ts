@@ -28,15 +28,25 @@ export const NAVIGATION_ITEMS = [
 
 export const SERVICE_AREAS = [
   'Garden City',
-  'White Lake',
   'Madison Heights',
-  'Ferndale',
   'Sterling Heights',
   'Westland',
   'Livonia',
   'Redford',
   'Dearborn',
   'Southfield',
+  'Farmington',
+  'Farmington Hills',
+  'Hamtramck',
+  'Royal Oak',
+  'Taylor',
+  'Warren',
+  'Ypsilanti',
+  'Dearborn Heights',
+  'Wayne',
+  'Troy',
+  'Northville',
+  'Novi',
 ] as const;
 
 export const BACKGROUND_PATTERN_SVG = 
