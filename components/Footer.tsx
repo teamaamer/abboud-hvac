@@ -44,8 +44,7 @@ export default function Footer() {
                 <strong>Email:</strong> {CONTACT_INFO.email}
               </p>
               <p className="text-gray-300">
-                <strong>Hours:</strong> {CONTACT_INFO.hours.weekday}<br />
-                {CONTACT_INFO.hours.saturday}, {CONTACT_INFO.hours.sunday}
+                <strong>Hours:</strong> {CONTACT_INFO.hours.weekday}
               </p>
             </div>
           </div>

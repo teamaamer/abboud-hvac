@@ -20,7 +20,7 @@ export default function HeroContent({ onEstimateClick }: HeroContentProps) {
       </h1>
       
       <p className="text-base sm:text-lg lg:text-xl mb-4 lg:mb-5 text-gray-200 animate-fade-in-up opacity-0" style={{ animationDelay: '0.4s' }}>
-        Serving Garden City, White Lake, Madison Heights & surrounding areas. Professional heating, cooling & electrical services with customer satisfaction guaranteed.
+        Serving Garden City, Madison Heights & surrounding areas. Professional heating, cooling & electrical services with customer satisfaction guaranteed.
       </p>
 
       <div className="grid grid-cols-2 gap-2.5 lg:gap-3 mb-4 lg:mb-5">

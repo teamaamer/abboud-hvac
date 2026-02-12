@@ -11,9 +11,9 @@ export const CONTACT_INFO = {
   },
   email: 'info@abhvac.co',
   hours: {
-    weekday: 'Mon-Fri 7AM-7PM',
-    saturday: 'Sat 8AM-5PM',
-    sunday: 'Sun Emergency Only',
+    weekday: 'Mon-Sat 7AM-7PM',
+    saturday: '',
+    sunday: '',
   },
   license: {
     hvac: 'HVAC-12345',
