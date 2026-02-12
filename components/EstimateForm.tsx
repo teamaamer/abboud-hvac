@@ -165,7 +165,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               required
               value={formData.fullName}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all ${
+              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all text-gray-900 ${
                 errors.fullName ? 'border-red-500' : 'border-gray-300'
               }`}
               style={{ minHeight: '44px' }}
@@ -189,7 +189,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all ${
+              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all text-gray-900 ${
                 errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
               style={{ minHeight: '44px' }}
@@ -217,7 +217,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               required
               value={formData.phone}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all ${
+              className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all text-gray-900 ${
                 errors.phone ? 'border-red-500' : 'border-gray-300'
               }`}
               style={{ minHeight: '44px' }}
@@ -240,7 +240,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
               name="serviceNeeded"
               value={formData.serviceNeeded}
               onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all bg-white"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all bg-white text-gray-900"
               style={{ minHeight: '44px' }}
             >
               <option value="">Select a service...</option>
@@ -263,7 +263,7 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all resize-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[var(--orange-500)] focus:border-transparent outline-none transition-all resize-none text-gray-900"
           />
         </div>
 
