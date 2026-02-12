@@ -6,6 +6,9 @@ export const CONTACT_INFO = {
   whatsapp: {
     href: 'https://wa.me/13136079891',
   },
+  facebook: {
+    href: 'https://www.facebook.com/profile.php?id=61588022880935',
+  },
   email: 'Adnanaboud1@hotmail.com',
   hours: {
     weekday: 'Mon-Fri 7AM-7PM',

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Phone } from 'lucide-react';
+import { Phone, Facebook } from 'lucide-react';
 import { CONTACT_INFO } from '@/lib/constants';
 
 export default function Footer() {
@@ -18,9 +18,19 @@ export default function Footer() {
                 unoptimized
               />
             </div>
-            <p className="text-gray-300">
+            <p className="text-gray-300 mb-4">
               Reliable HVAC & Electrical service built on quality and trust.
             </p>
+            <a
+              href={CONTACT_INFO.facebook.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-gray-300 hover:text-[var(--orange-400)] transition-colors"
+              aria-label="Follow us on Facebook"
+            >
+              <Facebook className="h-6 w-6 mr-2" />
+              Follow us on Facebook
+            </a>
           </div>
 
           <div>

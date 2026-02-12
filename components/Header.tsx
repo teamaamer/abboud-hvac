@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X, Facebook } from 'lucide-react';
 import { CONTACT_INFO, NAVIGATION_ITEMS } from '@/lib/constants';
 
 export default function Header() {
@@ -50,6 +50,15 @@ export default function Header() {
             </nav>
 
             <div className="hidden lg:flex items-center space-x-4">
+              <a
+                href={CONTACT_INFO.facebook.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-[var(--orange-400)] transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="h-6 w-6" />
+              </a>
               <a
                 href={CONTACT_INFO.phone.href}
                 className="flex items-center text-white hover:text-[var(--orange-400)] transition-colors font-semibold"
