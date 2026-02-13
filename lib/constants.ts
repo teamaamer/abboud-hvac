@@ -9,7 +9,7 @@ export const CONTACT_INFO = {
   facebook: {
     href: 'https://www.facebook.com/profile.php?id=61588022880935',
   },
-  email: 'info@abhvac.co',
+  email: 'info@hbvac.co',
   hours: {
     weekday: 'Mon-Sat 7AM-7PM',
     saturday: '',

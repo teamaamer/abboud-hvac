@@ -45,25 +45,37 @@ export default function EstimateForm({ isModal = false, onClose }: EstimateFormP
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
-      const response = await fetch('/api/submit-estimate', {
+      // Prepare form data for Web3Forms
+      const formPayload = new FormData();
+      formPayload.append('access_key', 'f99b05a8-2095-4c74-9afb-ee92c1426d78');
+      formPayload.append('subject', 'New Estimate Request - Abboud Electric and HVAC');
+      formPayload.append('from_name', formData.fullName);
+      formPayload.append('email', CONTACT_INFO.email); // Where to send the email
+      formPayload.append('name', formData.fullName);
+      formPayload.append('phone', formData.phone);
+      formPayload.append('customer_email', formData.email || 'Not provided');
+      formPayload.append('service_needed', formData.serviceNeeded || 'Not specified');
+      formPayload.append('contact_method', formData.contactMethod === 'call' ? 'Phone Call' : 'WhatsApp');
+      formPayload.append('message', formData.message || 'No additional message');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
+        body: formPayload,
       });
-      
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Failed to submit form');
       }
-      
+
       setSubmitted(true);
+      
       setTimeout(() => {
-        setSubmitted(false);
         setFormData({
           fullName: '',
           phone: '',
