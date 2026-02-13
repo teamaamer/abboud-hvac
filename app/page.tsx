@@ -13,6 +13,7 @@ import ReviewsSection from '@/components/sections/ReviewsSection';
 import ServiceAreasSection from '@/components/sections/ServiceAreasSection';
 import FAQSection from '@/components/sections/FAQSection';
 import EstimateSection from '@/components/sections/EstimateSection';
+import ProductsSection from '@/components/sections/ProductsSection';
 
 export default function Home() {
   const scrollToEstimate = () => {
@@ -29,6 +30,7 @@ export default function Home() {
       <HeroSection onEstimateClick={scrollToEstimate} />
       <SocialProofSection />
       <ServicesSection onEstimateClick={scrollToEstimate} />
+      <ProductsSection />
       <ScrollTransition />
       <WhyChooseUsSection />
       <ProcessSection />

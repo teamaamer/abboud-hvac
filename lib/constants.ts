@@ -23,6 +23,7 @@ export const CONTACT_INFO = {
 
 export const NAVIGATION_ITEMS = [
   { id: 'services', label: 'Services' },
+  { id: 'products', label: 'Products' },
   { id: 'why-us', label: 'Why Us' },
   { id: 'reviews', label: 'Reviews' },
   { id: 'service-areas', label: 'Service Areas' },
