@@ -94,9 +94,9 @@ export default function ScrollTransition() {
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="windGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="var(--cyan-400)" stopOpacity="0" />
-                <stop offset="50%" stopColor="var(--cyan-400)" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="var(--cyan-400)" stopOpacity="0" />
+                <stop offset="0%" stopColor="white" stopOpacity="0" />
+                <stop offset="50%" stopColor="white" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="white" stopOpacity="0" />
               </linearGradient>
             </defs>
 
@@ -128,7 +128,7 @@ export default function ScrollTransition() {
                 y: iconY,
               }}
             >
-              <Icon className="h-12 w-12 text-[var(--cyan-400)]" />
+              <Icon className="h-12 w-12 text-white" />
             </motion.div>
           ))}
         </motion.div>
@@ -157,49 +157,49 @@ export default function ScrollTransition() {
               Our Numbers Speak
             </h2>
             <div className="flex items-center justify-center gap-2">
-              <div className="h-0.5 sm:h-1 w-8 sm:w-12 bg-[var(--cyan-400)] rounded-full"></div>
-              <p className="text-[var(--cyan-400)] text-sm sm:text-base lg:text-lg font-semibold">Proven Excellence</p>
-              <div className="h-0.5 sm:h-1 w-8 sm:w-12 bg-[var(--cyan-400)] rounded-full"></div>
+              <div className="h-0.5 sm:h-1 w-8 sm:w-12 bg-white rounded-full"></div>
+              <p className="text-white text-sm sm:text-base lg:text-lg font-semibold">Proven Excellence</p>
+              <div className="h-0.5 sm:h-1 w-8 sm:w-12 bg-white rounded-full"></div>
             </div>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 text-center">
             <motion.div className="transform">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:border-[var(--cyan-500)]/50 transition-all duration-300 hover:scale-105">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105">
                 <div
-                  className="text-4xl sm:text-5xl font-bold text-[var(--cyan-400)] mb-1 sm:mb-2"
+                  className="text-4xl sm:text-5xl font-bold text-white mb-1 sm:mb-2"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   <motion.span>{customersRounded}</motion.span>+
                 </div>
                 <div className="text-white text-base sm:text-lg font-semibold">Happy Customers</div>
-                <div className="text-gray-300 text-xs sm:text-sm mt-0.5 sm:mt-1">Trusted by families & businesses</div>
+                <div className="text-white/80 text-xs sm:text-sm mt-0.5 sm:mt-1">Trusted by families & businesses</div>
               </div>
             </motion.div>
 
             <motion.div className="transform">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:border-[var(--cyan-500)]/50 transition-all duration-300 hover:scale-105">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105">
                 <div
-                  className="text-4xl sm:text-5xl font-bold text-[var(--cyan-400)] mb-1 sm:mb-2"
+                  className="text-4xl sm:text-5xl font-bold text-white mb-1 sm:mb-2"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   <motion.span>{yearsRounded}</motion.span>+
                 </div>
                 <div className="text-white text-base sm:text-lg font-semibold">Years Experience</div>
-                <div className="text-gray-300 text-xs sm:text-sm mt-0.5 sm:mt-1">Industry expertise you can trust</div>
+                <div className="text-white/80 text-xs sm:text-sm mt-0.5 sm:mt-1">Industry expertise you can trust</div>
               </div>
             </motion.div>
 
             <motion.div className="transform">
-              <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:border-[var(--cyan-500)]/50 transition-all duration-300 hover:scale-105">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 border border-white/20 hover:border-white/50 transition-all duration-300 hover:scale-105">
                 <div
-                  className="text-4xl sm:text-5xl font-bold text-[var(--cyan-400)] mb-1 sm:mb-2"
+                  className="text-4xl sm:text-5xl font-bold text-white mb-1 sm:mb-2"
                   style={{ fontFamily: 'var(--font-heading)' }}
                 >
                   <motion.span>{ratingRounded}</motion.span>★
                 </div>
                 <div className="text-white text-base sm:text-lg font-semibold">Average Rating</div>
-                <div className="text-gray-300 text-xs sm:text-sm mt-0.5 sm:mt-1">Consistently excellent service</div>
+                <div className="text-white/80 text-xs sm:text-sm mt-0.5 sm:mt-1">Consistently excellent service</div>
               </div>
             </motion.div>
           </div>
@@ -210,7 +210,7 @@ export default function ScrollTransition() {
             style={{ opacity: scrollIndicatorOpacity }}
           >
             <div className="animate-bounce-slow">
-              <div className="flex flex-col items-center text-[var(--cyan-400)]">
+              <div className="flex flex-col items-center text-white">
                 <span className="text-sm font-semibold mb-2">Explore Our Services</span>
                 <svg
                   className="w-6 h-6"

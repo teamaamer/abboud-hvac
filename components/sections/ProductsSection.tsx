@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { ShoppingCart, ExternalLink } from 'lucide-react';
-import { getAllProducts, formatPrice, type ShopifyProduct } from '@/lib/shopify';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { getAllProducts, type ShopifyProduct } from '@/lib/shopify';
+import ProductCard from '@/components/ProductCard';
 
 export default function ProductsSection() {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
@@ -14,7 +15,8 @@ export default function ProductsSection() {
     async function fetchProducts() {
       try {
         const fetchedProducts = await getAllProducts();
-        setProducts(fetchedProducts);
+        // Show only top 5 products on landing page
+        setProducts(fetchedProducts.slice(0, 5));
       } catch (err) {
         console.error('Error fetching products:', err);
         setError('Failed to load products. Please try again later.');
@@ -65,11 +67,18 @@ export default function ProductsSection() {
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-[var(--dark-bg)] mb-4" style={{ fontFamily: 'var(--font-heading)' }}>
-            HVAC Products & Equipment
+            Best Selling Products
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Quality HVAC products and equipment for your home or business
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+            Our top 5 most popular HVAC products and equipment
           </p>
+          <Link
+            href="/shop"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--orange-500)] to-[var(--red-500)] hover:from-[var(--orange-600)] hover:to-[var(--red-600)] text-white px-6 py-3 rounded-xl font-bold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+          >
+            View All Products
+            <ArrowRight className="h-5 w-5" />
+          </Link>
         </div>
 
         {products.length === 0 ? (
@@ -77,80 +86,10 @@ export default function ProductsSection() {
             <p className="text-gray-600">No products available at the moment.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product) => {
-              const imageUrl = product.images.edges[0]?.node.url || '/placeholder-product.png';
-              const price = formatPrice(product.priceRange.minVariantPrice.amount, product.priceRange.minVariantPrice.currencyCode);
-              const isAvailable = product.variants.edges.some(v => v.node.availableForSale);
-
-              return (
-                <div
-                  key={product.id}
-                  className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-[var(--orange-500)] flex flex-col"
-                >
-                  {/* Product Image */}
-                  <div className="relative h-64 bg-gray-100 overflow-hidden">
-                    <Image
-                      src={imageUrl}
-                      alt={product.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                    {!isAvailable && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <span className="bg-red-500 text-white px-4 py-2 rounded-lg font-bold">
-                          Out of Stock
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Product Info */}
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h3 className="text-lg font-bold text-[var(--dark-bg)] mb-2 line-clamp-2 group-hover:text-[var(--orange-600)] transition-colors" style={{ fontFamily: 'var(--font-heading)' }}>
-                      {product.title}
-                    </h3>
-                    
-                    {product.description && (
-                      <p className="text-sm text-gray-600 mb-4 line-clamp-3 flex-grow">
-                        {product.description.replace(/<[^>]*>/g, '')}
-                      </p>
-                    )}
-
-                    <div className="mt-auto">
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-2xl font-bold text-[var(--orange-600)]">
-                          {price}
-                        </span>
-                      </div>
-
-                      <a
-                        href={`https://ab-group-9125.myshopify.com/products/${product.handle}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-bold transition-all duration-200 ${
-                          isAvailable
-                            ? 'bg-gradient-to-r from-[var(--orange-500)] to-[var(--red-500)] hover:from-[var(--orange-600)] hover:to-[var(--red-600)] text-white shadow-lg hover:shadow-xl hover:scale-105'
-                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                        }`}
-                        {...(!isAvailable && { onClick: (e) => e.preventDefault() })}
-                      >
-                        {isAvailable ? (
-                          <>
-                            <ShoppingCart className="h-5 w-5" />
-                            View Product
-                            <ExternalLink className="h-4 w-4" />
-                          </>
-                        ) : (
-                          'Out of Stock'
-                        )}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         )}
       </div>
